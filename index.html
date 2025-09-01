@@ -1,0 +1,363 @@
+<!-- inicio.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>InverIA - Inicio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #2d3e50;
+    }
+    .header-flex {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      background: #2d3e50;
+      color: #fff;
+      padding: 20px 30px 10px 30px;
+      position: relative;
+    }
+    .logo {
+      width: 80px;
+      height: auto;
+      margin-right: 10px;
+      margin-top: 10px; /* margen superior para el logo */
+    }
+    .eslogan {
+      flex: 1;
+      text-align: center;
+      font-size: 1.1em;
+      font-weight: 500;
+      margin: 0;
+      margin-top: 18px; /* margen superior igual al logo */
+    }
+    #header-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px; /* margen superior igual al logo */
+    }
+    .usuario-box, .login-box {
+      font-size: 1em;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .usuario-box {
+      color: #27ae60;
+    }
+    .login-box a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 5px;
+      background: #27ae60;
+      transition: background 0.2s;
+    }
+    .login-box a:hover {
+      background: #20c997;
+    }
+    nav {
+      margin: 15px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #2d3e50;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #27ae60; }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .cotizaciones-flex {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+    .cotizaciones-box {
+      background: #f4f6f8;
+      border-radius: 8px;
+      padding: 18px 12px;
+      min-width: 180px;
+      box-shadow: 0 2px 8px rgba(39,174,96,0.08);
+      font-size: 0.98em;
+    }
+    .cta {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #27ae60;
+      color: #fff;
+      font-size: 1.1em;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 10px;
+      box-shadow: 0 2px 8px rgba(39,174,96,0.08);
+      cursor: pointer;
+    }
+    .cta:hover {
+      background: #20c997;
+      transform: scale(1.05);
+    }
+    .portafolio-box {
+      margin-top: 30px;
+      text-align: left;
+      background: #f4f6f8;
+      border-radius: 8px;
+      padding: 18px 12px;
+      box-shadow: 0 2px 8px rgba(39,174,96,0.08);
+    }
+    .portafolio-box h3 {
+      margin-top: 0;
+      color: #27ae60;
+    }
+    .portafolio-box table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .portafolio-box th, .portafolio-box td {
+      padding: 8px;
+      border-bottom: 1px solid #d1d8e0;
+      text-align: left;
+    }
+    .portafolio-box th {
+      background: #e9f7ef;
+      color: #27ae60;
+    }
+    .portafolio-box td {
+      background: #fff;
+    }
+    footer {
+      text-align: center;
+      color: #666;
+      padding: 20px 0;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+    @media (max-width: 800px) {
+      .cotizaciones-flex { flex-direction: column; gap: 10px; }
+      .cotizaciones-box { min-width: 0; }
+      .header-flex { flex-direction: column; align-items: flex-start; padding: 20px 10px 10px 10px;}
+      .logo { margin-top: 10px; }
+      .eslogan { font-size: 1em; text-align: left; margin-top: 18px; }
+      #header-right { margin-left: 0; margin-top: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header-flex">
+    <img src="img/logo.png" alt="Logo InverIA" class="logo">
+    <p class="eslogan">Tu asistente inteligente de finanzas personales e inversiones en criptomonedas.</p>
+    <div id="header-right"></div>
+  </div>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <div class="cotizaciones-flex">
+    <div class="cotizaciones-box" id="cotizaciones-cripto">
+      <strong>Criptomonedas</strong>
+      <ul id="lista-cotizaciones"></ul>
+    </div>
+    <div class="cotizaciones-box" id="cotizaciones-mercado">
+      <strong>Mercado Tradicional</strong>
+      <ul id="lista-cedears"></ul>
+      <ul id="lista-bonos"></ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <a href="#" class="cta" id="comenzar-btn">Comenzar</a>
+    <div id="portafolio"></div>
+  </div>
+
+  <!-- Modal de Onboarding -->
+  <div id="onboarding-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(44,62,80,0.85); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:12px; max-width:400px; margin:auto; padding:32px 24px; text-align:center; box-shadow:0 4px 24px rgba(0,0,0,0.18);">
+      <h2>¡Bienvenido a InverIA!</h2>
+      <p>Gestiona tus finanzas, consulta cotizaciones y recibe recomendaciones inteligentes.</p>
+      <ul style="text-align:left; margin:18px 0;">
+        <li>Regístrate o inicia sesión para guardar tu portafolio.</li>
+        <li>Consulta cotizaciones en tiempo real.</li>
+        <li>Recibe alertas y sugerencias personalizadas.</li>
+        <li>Aprende sobre inversiones con nuestro asistente.</li>
+      </ul>
+      <button id="cerrar-onboarding" style="margin-top:18px; padding:10px 24px; background:#27ae60; color:#fff; border:none; border-radius:6px; font-weight:600; cursor:pointer;">¡Entendido!</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 InverIA. Todos los derechos reservados.
+  </footer>
+
+  <script>
+const apiKey = "TU_API_KEY_FINNHUB"; // Reemplaza por tu clave real
+
+// Cotizaciones cripto
+const criptos = [
+  { symbol: "BTCUSD", name: "Bitcoin" },
+  { symbol: "ETHUSD", name: "Ethereum" },
+  { symbol: "SOLUSD", name: "Solana" }
+];
+
+function cargarCotizaciones() {
+  const lista = document.getElementById('lista-cotizaciones');
+  lista.innerHTML = '';
+  criptos.forEach(cripto => {
+    fetch(`https://finnhub.io/api/v1/quote?symbol=${cripto.symbol}&token=${apiKey}`)
+      .then(res => res.json())
+      .then(data => {
+        const li = document.createElement('li');
+        li.textContent = `${cripto.name}: $${data.c} (${data.dp?.toFixed(2) ?? "0.00"}%)`;
+        lista.appendChild(li);
+      });
+  });
+}
+
+// Cotizaciones mercado tradicional
+const cedears = ["AAPL", "TSLA", "GOOGL"];
+const bonos = ["AL30", "GD30"];
+
+function cargarCedears() {
+  const lista = document.getElementById('lista-cedears');
+  lista.innerHTML = '';
+  cedears.forEach(simbolo => {
+    fetch(`https://finnhub.io/api/v1/quote?symbol=${simbolo}&token=${apiKey}`)
+      .then(res => res.json())
+      .then(data => {
+        const li = document.createElement('li');
+        li.textContent = `${simbolo}: $${data.c} (${data.dp?.toFixed(2) ?? "0.00"}%)`;
+        lista.appendChild(li);
+      });
+  });
+}
+
+function cargarBonos() {
+  const lista = document.getElementById('lista-bonos');
+  lista.innerHTML = '';
+  bonos.forEach(simbolo => {
+    fetch(`https://finnhub.io/api/v1/quote?symbol=${simbolo}&token=${apiKey}`)
+      .then(res => res.json())
+      .then(data => {
+        const li = document.createElement('li');
+        li.textContent = `${simbolo}: $${data.c} (${data.dp?.toFixed(2) ?? "0.00"}%)`;
+        lista.appendChild(li);
+      });
+  });
+}
+
+// Sesión persistente (ejemplo: 60 minutos)
+function sesionActiva() {
+  const usuario = localStorage.getItem("usuario");
+  const sesion = localStorage.getItem("sesion");
+  if (!usuario || !sesion) return false;
+  const ahora = Date.now();
+  const sesionTime = parseInt(sesion, 10);
+  const minutos = (ahora - sesionTime) / 60000;
+  return minutos < 60; // Cambia el tiempo si lo deseas
+}
+
+// Header dinámico
+function actualizarHeader() {
+  const headerRight = document.getElementById("header-right");
+  headerRight.innerHTML = "";
+  if (sesionActiva()) {
+    const usuario = localStorage.getItem("usuario");
+    const box = document.createElement("div");
+    box.className = "usuario-box";
+    box.textContent = "¡Bienvenido, " + usuario + "!";
+    headerRight.appendChild(box);
+    document.getElementById("comenzar-btn").style.display = "none";
+  } else {
+    const box = document.createElement("div");
+    box.className = "login-box";
+    box.innerHTML = `
+      <a href="login.html">Iniciar sesión</a>
+      <a href="registro.html">Registrarse</a>
+    `;
+    headerRight.appendChild(box);
+    document.getElementById("comenzar-btn").style.display = "inline-block";
+    document.getElementById("portafolio").innerHTML = "";
+  }
+}
+
+// Portafolio simulado
+function mostrarPortafolio() {
+  if (!sesionActiva()) return;
+  // Ejemplo simple: portafolio guardado en localStorage
+  let portafolio = JSON.parse(localStorage.getItem("portafolio") || "[]");
+  if (portafolio.length === 0) {
+    portafolio = [
+      { activo: "BTCUSD", nombre: "Bitcoin", cantidad: 0.1 },
+      { activo: "AAPL", nombre: "Apple", cantidad: 5 }
+    ];
+    localStorage.setItem("portafolio", JSON.stringify(portafolio));
+  }
+  let html = `<div class="portafolio-box"><h3>Tu portafolio</h3><table>
+    <tr><th>Activo</th><th>Cantidad</th><th>Precio actual</th><th>Valor total</th></tr>`;
+  portafolio.forEach(item => {
+    // Obtener precio actual
+    let precio = 0;
+    if (item.activo.endsWith("USD")) {
+      const cripto = criptos.find(c => c.symbol === item.activo);
+      precio = document.querySelector("#lista-cotizaciones li")?.textContent?.match(/\$(\d+(\.\d+)?)/)?.[1] || 0;
+    } else {
+      precio = document.querySelector(`#lista-cedears li:contains(${item.activo})`)?.textContent?.match(/\$(\d+(\.\d+)?)/)?.[1] || 0;
+    }
+    const valor = (precio * item.cantidad).toFixed(2);
+    html += `<tr>
+      <td>${item.nombre}</td>
+      <td>${item.cantidad}</td>
+      <td>$${precio}</td>
+      <td>$${valor}</td>
+    </tr>`;
+  });
+  html += `</table></div>`;
+  document.getElementById("portafolio").innerHTML = html;
+}
+
+// Guardar hora de sesión al iniciar sesión (agrega esto en login.html al loguear)
+if (window.location.pathname.endsWith("inicio.html")) {
+  window.onload = function() {
+    cargarCotizaciones();
+    cargarCedears();
+    cargarBonos();
+    actualizarHeader();
+    if (sesionActiva()) mostrarPortafolio();
+  };
+}
+
+document.getElementById("comenzar-btn").onclick = function() {
+  document.getElementById("onboarding-modal").style.display = "flex";
+};
+document.getElementById("cerrar-onboarding").onclick = function() {
+  document.getElementById("onboarding-modal").style.display = "none";
+};
+</script>
+</body>
+</html>
