@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>InverIA - Iniciar sesión</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #2d3e50;
+    }
+    header {
+      background: #2d3e50;
+      color: #fff;
+      padding: 25px 0 10px 0;
+      text-align: center;
+    }
+    .logo {
+      width: 90px;
+      height: auto;
+      margin-bottom: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      animation: logoFadeIn 1.2s;
+    }
+    @keyframes logoFadeIn {
+      from { opacity: 0; transform: scale(0.8);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    nav {
+      margin: 15px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #2d3e50;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #27ae60; }
+
+    .login-container {
+      max-width: 400px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .login-container h2 {
+      color: #2d3e50;
+      margin-bottom: 24px;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border-radius: 6px;
+      border: 1px solid #d1d8e0;
+      font-size: 1em;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background: #27ae60;
+      color: #fff;
+      font-size: 1.1em;
+      border-radius: 6px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 2px 8px rgba(39,174,96,0.08);
+    }
+    .login-container button:hover {
+      background: #20c997;
+      transform: scale(1.03);
+    }
+    .volver-link {
+      display: block;
+      margin-top: 22px;
+      color: #27ae60;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.2s;
+    }
+    .volver-link:hover {
+      color: #20c997;
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      color: #666;
+      padding: 20px 0;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+    @media (max-width: 600px) {
+      .login-container { padding: 20px 15px; }
+      .logo { width: 60px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="Logo InverIA" class="logo">
+    <p>Tu asistente inteligente de finanzas personales e inversiones en criptomonedas.</p>
+  </header>
+
+  <nav>
+    <a href="inicio.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <div class="login-container">
+    <h2>Iniciar sesión</h2>
+    <form>
+      <input type="text" placeholder="Usuario" required>
+      <input type="password" placeholder="Contraseña" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <a href="inicio.html" class="volver-link">Volver al inicio</a>
+  </div>
+
+  <footer>
+    &copy; 2025 InverIA. Todos los derechos reservados.
+  </footer>
+
+  <script>
+document.querySelector("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const usuario = this.elements[0].value;
+  const pass = this.elements[1].value;
+
+  // Verificar usuario y contraseña
+  if (
+    usuario === localStorage.getItem("usuario") &&
+    pass === localStorage.getItem("password")
+  ) {
+    alert("¡Bienvenido, " + usuario + "!");
+    window.location.href = "inicio.html";
+  } else {
+    alert("Usuario o contraseña incorrectos.");
+  }
+});
+</script>
+</body>
+</html>

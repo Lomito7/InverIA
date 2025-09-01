@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto - InverIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #2d3e50;
+    }
+    header {
+      background: #2d3e50;
+      color: #fff;
+      padding: 25px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .header-compact {
+      text-align: left;
+      padding: 15px 0 10px 30px;
+    }
+    .header-compact .logo {
+      position: absolute;
+      left: 30px;
+      top: 15px;
+      width: 60px;
+      margin: 0;
+      animation: logoMove 1s forwards;
+    }
+    .header-compact .slogan {
+      opacity: 0;
+      transition: opacity 0.7s;
+    }
+    @keyframes logoMove {
+      from { left: 50%; top: 25px; transform: translateX(-50%); width: 110px;}
+      to { left: 30px; top: 15px; transform: none; width: 60px;}
+    }
+    nav {
+      margin: 15px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #2d3e50;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #27ae60; }
+
+    .contacto-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 40px 30px;
+    }
+    .contacto-container h1 {
+      text-align: center;
+      color: #2d3e50;
+      margin-bottom: 24px;
+    }
+    .contacto-metodo, .contacto-email {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 1.1em;
+    }
+    .contacto-metodo img, .contacto-email img {
+      width: 32px;
+      height: 32px;
+      margin-right: 16px;
+      border-radius: 50%;
+      padding: 4px;
+      background: #f4f6f8;
+    }
+    .contacto-metodo a {
+      color: #27ae60;
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
+    }
+    .contacto-metodo a:hover {
+      text-decoration: underline;
+    }
+    .contacto-email span {
+      color: #27ae60;
+      font-weight: 600;
+      word-break: break-all;
+    }
+    footer {
+      text-align: center;
+      color: #666;
+      padding: 20px 0;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+    @media (max-width: 600px) {
+      .contacto-container { padding: 20px 15px; }
+      .logo { width: 40px !important; }
+      .header-compact { padding-left: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header-compact">
+    <img src="img/logo.png" alt="Logo InverIA" class="logo">
+    <p class="slogan">Tu asistente inteligente de finanzas personales</p>
+  </header>
+
+  <nav>
+    <a href="inicio.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <div class="contacto-container">
+    <h1>Contacto</h1>
+    <div class="contacto-metodo">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Síguenos en Instagram (@inveria)" style="background:#E4405F;">
+      <a href="https://instagram.com/inveria" target="_blank">@inveria</a>
+    </div>
+    <div class="contacto-metodo">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Síguenos en X (@inveria)" style="background:#000;">
+      <a href="https://x.com/inveria" target="_blank">@inveria</a>
+    </div>
+    <div class="contacto-metodo">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Síguenos en Facebook (@inveria)" style="background:#1877F3;">
+      <a href="https://facebook.com/inveria" target="_blank">@inveria</a>
+    </div>
+    <div class="contacto-email">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftoutlook.svg" alt="Correo electrónico" style="background:#0072C6;">
+      <span>inveria@outlook.com.ar</span>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 InverIA. Todos los derechos reservados.
+  </footer>
+</body>
+</html>

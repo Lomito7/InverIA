@@ -1,0 +1,269 @@
+<!-- servicios.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>InverIA - Servicios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #2d3e50;
+    }
+    header {
+      background: #2d3e50;
+      color: #fff;
+      padding: 25px 0 10px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .header-compact {
+      text-align: left;
+      padding: 15px 0 10px 30px;
+    }
+    .header-compact .logo {
+      position: absolute;
+      left: 30px;
+      top: 15px;
+      width: 60px;
+      margin: 0;
+      animation: logoMove 1s forwards;
+    }
+    .header-compact .slogan {
+      opacity: 0;
+      transition: opacity 0.7s;
+    }
+    @keyframes logoMove {
+      from { left: 50%; top: 25px; transform: translateX(-50%); width: 110px;}
+      to { left: 30px; top: 15px; transform: none; width: 60px;}
+    }
+    nav {
+      margin: 15px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #2d3e50;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #27ae60; }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .container h2 {
+      color: #2d3e50;
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+    .container p {
+      font-size: 1.1em;
+      margin-bottom: 24px;
+    }
+    .buscador-section {
+      margin: 35px 0 0 0;
+      text-align: left;
+    }
+    .buscador-section h3 {
+      margin-bottom: 10px;
+      color: #2d3e50;
+      font-size: 1.15em;
+    }
+    #buscador {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #d1d8e0;
+      margin-bottom: 15px;
+      font-size: 1em;
+    }
+    #lista-cotizaciones {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #lista-cotizaciones li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f4f6f8;
+      font-size: 1.05em;
+      transition: background 0.2s;
+    }
+    #lista-cotizaciones li:hover {
+      background: #f4f6f8;
+    }
+    #lista-cedears, #lista-bonos {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #lista-cedears li, #lista-bonos li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f4f6f8;
+      font-size: 1.05em;
+      transition: background 0.2s;
+    }
+    #lista-cedears li:hover, #lista-bonos li:hover {
+      background: #f4f6f8;
+    }
+    footer {
+      text-align: center;
+      color: #666;
+      padding: 20px 0;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 20px 15px; }
+      .logo { width: 40px !important; }
+      .header-compact { padding-left: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header-compact">
+    <img src="img/logo.png" alt="Logo InverIA" class="logo">
+    <p class="slogan">Tu asistente inteligente de finanzas personales e inversiones en criptomonedas.</p>
+  </header>
+
+  <nav>
+    <a href="inicio.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <div class="container">
+    <h2>Servicios y funcionalidades</h2>
+    <p>Descubre todo lo que InverIA puede hacer por tus finanzas personales y tus inversiones en criptomonedas.</p>
+    <ul style="text-align:left; margin-bottom:30px;">
+      <li>Gestión inteligente de gastos e ingresos.</li>
+      <li>Recomendaciones personalizadas de inversión.</li>
+      <li>Seguimiento de portafolio de criptomonedas.</li>
+      <li>Alertas y análisis de mercado.</li>
+      <li>Informes automáticos y visualizaciones.</li>
+      <li>Buscador de cotizaciones en tiempo real.</li>
+    </ul>
+
+    <div class="buscador-section">
+      <h3>Cotizaciones Mercado Cripto</h3>
+      <input type="text" id="buscador" placeholder="Buscar cotización..." onkeyup="filtrarCotizaciones()">
+      <ul id="lista-cotizaciones">
+        <!-- Las cotizaciones se cargarán aquí -->
+      </ul>
+    </div>
+
+    <div class="buscador-section">
+      <h3>Cotizaciones Mercado Tradicional</h3>
+      <input type="text" id="buscador-mercado" placeholder="Buscar activo..." onkeyup="filtrarMercado()">
+      <ul id="lista-cedears">
+        <!-- CEDEARs se cargarán aquí -->
+      </ul>
+      <ul id="lista-bonos">
+        <!-- Bonos se cargarán aquí -->
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 InverIA. Todos los derechos reservados.
+  </footer>
+
+  <script>
+const apiKey = "TU_API_KEY_FINNHUB"; // Reemplaza por tu clave real
+
+// Ejemplo de símbolos cripto (ajusta según los disponibles en Finnhub)
+const criptos = [
+  { symbol: "BTCUSD", name: "Bitcoin" },
+  { symbol: "ETHUSD", name: "Ethereum" },
+  { symbol: "SOLUSD", name: "Solana" },
+  { symbol: "BNBUSD", name: "Binance Coin" },
+  { symbol: "ADAUSD", name: "Cardano" }
+];
+
+function cargarCotizaciones() {
+  const lista = document.getElementById('lista-cotizaciones');
+  lista.innerHTML = '';
+  criptos.forEach(cripto => {
+    fetch(`https://finnhub.io/api/v1/quote?symbol=${cripto.symbol}&token=${apiKey}`)
+      .then(res => res.json())
+      .then(data => {
+        const li = document.createElement('li');
+        li.textContent = `${cripto.name}: $${data.c} (Cambio: ${data.dp?.toFixed(2) ?? "0.00"}%)`;
+        lista.appendChild(li);
+      });
+  });
+}
+
+function filtrarCotizaciones() {
+  const input = document.getElementById('buscador').value.toLowerCase();
+  const lista = document.getElementById('lista-cotizaciones').getElementsByTagName('li');
+  for (let i = 0; i < lista.length; i++) {
+    const texto = lista[i].textContent.toLowerCase();
+    lista[i].style.display = texto.includes(input) ? '' : 'none';
+  }
+}
+
+// Ejemplo de símbolos CEDEARs y Bonos (ajusta según los disponibles en Finnhub)
+const cedears = ["AAPL", "TSLA", "GOOGL"]; // Ejemplo: Apple, Tesla, Google
+const bonos = ["AL30", "GD30"]; // Ejemplo: Bonos argentinos
+
+function cargarCedears() {
+  const lista = document.getElementById('lista-cedears');
+  lista.innerHTML = '<strong>CEDEARs:</strong>';
+  cedears.forEach(simbolo => {
+    fetch(`https://finnhub.io/api/v1/quote?symbol=${simbolo}&token=${apiKey}`)
+      .then(res => res.json())
+      .then(data => {
+        const li = document.createElement('li');
+        li.textContent = `${simbolo}: $${data.c} (Cambio: ${data.dp?.toFixed(2) ?? "0.00"}%)`;
+        lista.appendChild(li);
+      });
+  });
+}
+
+function cargarBonos() {
+  const lista = document.getElementById('lista-bonos');
+  lista.innerHTML = '<strong>Bonos:</strong>';
+  bonos.forEach(simbolo => {
+    fetch(`https://finnhub.io/api/v1/quote?symbol=${simbolo}&token=${apiKey}`)
+      .then(res => res.json())
+      .then(data => {
+        const li = document.createElement('li');
+        li.textContent = `${simbolo}: $${data.c} (Cambio: ${data.dp?.toFixed(2) ?? "0.00"}%)`;
+        lista.appendChild(li);
+      });
+  });
+}
+
+function filtrarMercado() {
+  const input = document.getElementById('buscador-mercado').value.toLowerCase();
+  ['lista-cedears', 'lista-bonos'].forEach(id => {
+    const lista = document.getElementById(id).getElementsByTagName('li');
+    for (let i = 0; i < lista.length; i++) {
+      const texto = lista[i].textContent.toLowerCase();
+      lista[i].style.display = texto.includes(input) ? '' : 'none';
+    }
+  });
+}
+
+window.onload = () => {
+  cargarCotizaciones();
+  cargarCedears();
+  cargarBonos();
+}
+  </script>
+</body>
+</html>
